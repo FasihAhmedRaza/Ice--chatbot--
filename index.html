@@ -235,7 +235,7 @@
 
     .chat-input .send-btn {
       cursor: pointer;
-      font-size: 1.5rem;
+      font-size: 2.0rem;
       color: #333;
     }
 
@@ -246,7 +246,7 @@
     }
     
 
-    .voice-btn{
+    /* .voice-btn{
       cursor: pointer;
       font-size: 2.5rem;
       color: #133651;
@@ -256,7 +256,7 @@
 
     .voice-btn:hover{
       color: #3bb4ec;
-    }
+    } */
     /* Typing Indicator */
     .typing-indicator {
       display: flex;
@@ -369,7 +369,7 @@
     <div class="chat-input">
       <div class="input-container">
         <input type="text" placeholder="Ask any questions..." spellcheck="false" name="ask_prompt" required />
-        <button class="voice-btn"><span class="material-symbols-rounded">mic</span></button>
+        <!-- <button class="voice-btn"><span class="material-symbols-rounded">mic</span></button> -->
         <span class="material-symbols-rounded send-btn">send</span>
       
       </div>
@@ -387,31 +387,34 @@
     const chatWindow = document.querySelector(".chatbox");
     const chatInput = document.querySelector(".chat-input input");
     const sendChatBtn = document.querySelector(".send-btn");
-    const voiceBtn = document.querySelector('.voice-btn');
+    // const voiceBtn = document.querySelector('.voice-btn');
 
-    voiceBtn.addEventListener('click', startVoiceRecognition);
-    function startVoiceRecognition() {
-            const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
-            recognition.lang = 'en-US';
-            recognition.interimResults = false;
-            recognition.maxAlternatives = 1;
+    // voiceBtn.addEventListener('click', startVoiceRecognition);
+    // function startVoiceRecognition() {
+    //         const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+    //         recognition.lang = 'en-US';
+    //         recognition.interimResults = false;
+    //         recognition.maxAlternatives = 1;
     
-            recognition.start();
+    //         recognition.start();
     
-            recognition.onresult = function (event) {
-              const transcript = event.results[0][0].transcript;
-              chatInput.value = transcript;
-              sendMessage();
-            };
+    //         recognition.onresult = function (event) {
+    //           const transcript = event.results[0][0].transcript;
+    //           chatInput.value = transcript;
+    //           sendMessage();
+    //         };
     
-            recognition.onerror = function (event) {
-              console.error('Speech recognition error detected: ' + event.error);
-            };
+    //         recognition.onerror = function (event) {
+    //           console.error('Speech recognition error detected: ' + event.error);
+    //         };
     
-            recognition.onend = function () {
-              console.log('Speech recognition service disconnected');
-            };
-          }
+    //         recognition.onend = function () {
+    //           console.log('Speech recognition service disconnected');
+    //         };
+    //       }
+
+
+
     // const regenerateBtn = document.querySelector(".regenerate-btn");
     let userMessage = null;
     let lastUserMessage = null;
